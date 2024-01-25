@@ -8,6 +8,7 @@
 //#include "Demos/02_CollisionDemo.h"
 #include "Demos/03_ShadedDemo.h"
 #include "Demos/04_AnimDemo.h"
+#include "Demos/Avoid_N_Survive.h"
 
 void Program::Init()
 {
@@ -52,6 +53,7 @@ void Program::Init()
 //	Push(new CollisionDemo);
 //	Push(new ShadedDemo);
 //	Push(new AnimDemo);
+	Push(new Avoid_N_Survive);
 }
 
 void Program::Destroy()

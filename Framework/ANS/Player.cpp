@@ -2,7 +2,7 @@
 #include "Player.h"
 
 Player::Player(Vector3 position, Vector3 size, float rotation)
-	: Rect(position,size, rotation)
+	:Rect(position, size, rotation)
 {
 }
 
@@ -30,15 +30,37 @@ void Player::Control()
 		moveR = false;
 	}
 	// มกวม
-	if (Keyboard::Get()->Press(VK_SPACE) || !jump)
+	if (Keyboard::Get()->Down(VK_SPACE) && !jump)
 	{
-		float jumptime = 0.0f;
-		jumptime += Time::Delta();
-		float oldpy = GetPositionY();
-		if (jumptime < 3.0f)
+		Oldpos = GetPosition();
+		jump = true;
+	}
+	if (jump)
+	{
+		if (jumptime <= 0.25f)
 		{
-			position.y = 100 * Time::Delta();
+			jumptime = jumptime + Time::Delta();
+			SetPositionY(GetPosition().y + 20*jumptime);
+		}
+		else if (jumptime > 0.25f)
+		{
+			jump = false;
+			fall = true;
 		}
 	}
+	if (fall)
+	{
+		if (GetPosition().y >= Oldpos.y)
+		{
+			SetPositionY(GetPosition().y - jumptime*20);
+			if (GetPosition().y <= Oldpos.y)
+			{
+				SetPositionY(Oldpos.y);
+				fall = false;
+				jump = false;
+				jumptime = 0.0f;
+			}
+		}
 
+	}
 }
