@@ -15,10 +15,15 @@ class Avoid_N_Survive : public IObject
 	// ANS 관련함수
 	void IsGround(); // ground 와 player 확인
 private:
+
 	// 그림 관련
 	Player* player;
 	Rect* ground;
 
 	// 변수 관련
-
+	
+	// 플레이 시간
+	float deltatime = 0.0f;
+	int playtime_s = 0;
+	int playtime_m = 0;
 };

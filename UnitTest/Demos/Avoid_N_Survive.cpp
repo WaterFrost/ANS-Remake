@@ -12,6 +12,9 @@ void Avoid_N_Survive::Init()
 	ground->SetColor(Values::Green);
 	ground->Update();
 
+	Sounds::Get()->addSound("BGM", SoundPath + L"ANS.mp3", true);
+	Sounds::Get()->Play("BGM", 0.2f);
+
 }
 
 void Avoid_N_Survive::Destroy()
@@ -22,11 +25,31 @@ void Avoid_N_Survive::Destroy()
 
 void Avoid_N_Survive::Update()
 {
+	deltatime += Time::Delta();
+	if (deltatime >= 1)
+	{
+		deltatime--;
+		playtime_s++;
+		if (playtime_s < 60 && playtime_m == 0)
+		{
+			printf("PlayTime : %d second\n", playtime_s);
+		}
+		else if (playtime_s == 60)
+		{
+			playtime_m++;
+			playtime_s = 0;
+		}
+		if (playtime_m >= 1)
+		{
+			printf("PlayTime : %d minute %d second\n", playtime_m, playtime_s);
+		}
+	}
+
 	player->Control();
 
 	IsGround();
 
- 	player->Update();
+	player->Update();
 	ground->Update();
 }
 
@@ -50,10 +73,10 @@ void Avoid_N_Survive::IsGround()
 	{
 		player->SetGroud(true);
 	}
-	if (player->GetGround()) 
+	if (player->GetGround())
 	{
 		Vector3 g_pos = ground->GetPosition();
 		Vector3 p_pos = player->GetPosition();
-		player->SetPositionY(g_pos.y+25.1f);
+		player->SetPositionY(g_pos.y + 25.1f);
 	}
 }
