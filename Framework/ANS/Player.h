@@ -38,7 +38,7 @@ private:
 
 	// 점프 관련
 	float jumptime = 0.f;
-	float jumpPower = 3.0f;
+	float jumpPower = 2.5f;
 	
 
 	

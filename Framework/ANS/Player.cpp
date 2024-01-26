@@ -15,49 +15,67 @@ void Player::Control()
 	// 좌우 이동
 	if (Keyboard::Get()->Press(VK_LEFT) || Keyboard::Get()->Press('A'))
 	{
-		position.x -= 200 * Time::Delta();
+		position.x -= 300 * Time::Delta();
 		if (Keyboard::Get()->Press(VK_RIGHT) || Keyboard::Get()->Press('D') && !moveR)
-			position.x += 400 * Time::Delta();
+			position.x += 600 * Time::Delta();
 	}
 
 	else if (Keyboard::Get()->Press(VK_RIGHT) || Keyboard::Get()->Press('D'))
 	{
 		moveR = true;
-		position.x += 200 * Time::Delta();
+		position.x += 300 * Time::Delta();
 	}
 	if (Keyboard::Get()->Up('D'))
 	{
 		moveR = false;
 	}
-	// 점프
-	if (Keyboard::Get()->Down(VK_SPACE) && ground && !jump)
+
+	// 더블 점프 활성 
+	if (jump && !doublejump && Keyboard::Get()->Down(VK_SPACE))
+	{
+		doublejump = true;
+		jumptime = 0.0f;
+	}
+	if (fall && !doublejump && Keyboard::Get()->Down(VK_SPACE))
+	{
+		fall = false;
+		jumptime = 0.0f;
+		jump = true;
+		doublejump = true;
+	}
+
+	// 점프 활성화
+	if (Keyboard::Get()->Down(VK_SPACE) && ground)
 	{
 		ground = false;
 		jump = true;
 	}
+	// 점프 활성시
 	if (jump)
 	{
-		if (jumptime <= 0.25f)
+		jumptime = jumptime + 3*Time::Delta();
+		SetPositionY(GetPosition().y + (jumpPower - jumptime));
+		if (jumptime >= jumpPower)
 		{
-			jumptime = jumptime + Time::Delta();
-			SetPositionY(GetPosition().y + (jumpPower - jumpPower * Time::Delta()));
-		}
-		else if (jumptime > 0.25f)
-		{
+			jumptime = 0.0f;
 			jump = false;
 			fall = true;
 		}
 	}
+	
+	// 낙하 활성시
 	if (fall)
 	{
-		SetPositionY(GetPosition().y - jumpPower);
-		jumpPower = jumpPower + Time::Delta();
+		jumptime = jumptime + 10*Time::Delta();
+		SetPositionY(GetPosition().y - jumptime);
 	}
+
+	// 바닥 활성시
 	if (ground)
 	{
 		fall = false;
 		jump = false;
+		doublejump = false;
 		jumptime = 0.0f;
-		jumpPower = 3.0f;
 	}
 }

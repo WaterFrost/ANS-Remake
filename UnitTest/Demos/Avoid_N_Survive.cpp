@@ -11,25 +11,29 @@ void Avoid_N_Survive::Init()
 	ground = new Rect(Vector3(WinMaxWidth * 0.5, 10, 0), Vector3(WinMaxWidth, 20, 1), 0.0f);
 	ground->SetColor(Values::Green);
 	ground->Update();
+
 }
 
 void Avoid_N_Survive::Destroy()
 {
+	SAFE_DELETE(ground);
 	SAFE_DELETE(player);
 }
 
 void Avoid_N_Survive::Update()
 {
 	player->Control();
+
 	IsGround();
-	player->Update();
+
+ 	player->Update();
 	ground->Update();
 }
 
 void Avoid_N_Survive::Render()
 {
-	player->Render();
 	ground->Render();
+	player->Render();
 }
 
 void Avoid_N_Survive::PostRender()
@@ -46,7 +50,7 @@ void Avoid_N_Survive::IsGround()
 	{
 		player->SetGroud(true);
 	}
-	if (player->GetGround())
+	if (player->GetGround()) 
 	{
 		Vector3 g_pos = ground->GetPosition();
 		Vector3 p_pos = player->GetPosition();
