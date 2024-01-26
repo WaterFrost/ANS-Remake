@@ -30,9 +30,9 @@ void Player::Control()
 		moveR = false;
 	}
 	// มกวม
-	if (Keyboard::Get()->Down(VK_SPACE) && !jump)
+	if (Keyboard::Get()->Down(VK_SPACE) && ground && !jump)
 	{
-		Oldpos = GetPosition();
+		ground = false;
 		jump = true;
 	}
 	if (jump)
@@ -40,7 +40,7 @@ void Player::Control()
 		if (jumptime <= 0.25f)
 		{
 			jumptime = jumptime + Time::Delta();
-			SetPositionY(GetPosition().y + 20*jumptime);
+			SetPositionY(GetPosition().y + (jumpPower - jumpPower * Time::Delta()));
 		}
 		else if (jumptime > 0.25f)
 		{
@@ -50,17 +50,14 @@ void Player::Control()
 	}
 	if (fall)
 	{
-		if (GetPosition().y >= Oldpos.y)
-		{
-			SetPositionY(GetPosition().y - jumptime*20);
-			if (GetPosition().y <= Oldpos.y)
-			{
-				SetPositionY(Oldpos.y);
-				fall = false;
-				jump = false;
-				jumptime = 0.0f;
-			}
-		}
-
+		SetPositionY(GetPosition().y - jumpPower);
+		jumpPower = jumpPower + Time::Delta();
+	}
+	if (ground)
+	{
+		fall = false;
+		jump = false;
+		jumptime = 0.0f;
+		jumpPower = 3.0f;
 	}
 }
