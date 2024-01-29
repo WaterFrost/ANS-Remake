@@ -25,7 +25,10 @@ void Avoid_N_Survive::Destroy()
 
 void Avoid_N_Survive::Update()
 {
-	GameTimer();
+	// 게임 시간 관련 함수 모음
+	GameTime();
+	// 랜덤 패턴 부여 함수
+	RandomPattern();
 	// 플레이어 움직임 관련 함수 불러오기
 	player->Control();
 	player->IsWall();
@@ -43,17 +46,39 @@ void Avoid_N_Survive::Render()
 	player->Render();
 }
 
-void Avoid_N_Survive::GameTimer()
+void Avoid_N_Survive::PostRender()
+{
+}
+
+void Avoid_N_Survive::GUI()
+{
+}
+
+void Avoid_N_Survive::GameTime()
 {
 	deltatime += Time::Delta();
 	if (deltatime >= 1)
 	{
+		// 1초 마다 -1
 		deltatime--;
+
+		// 패턴 출력 시간 관리
+		
+		if (!pattern)
+		{
+			pTime++;
+			if (pTime < 3)
+			{
+				pattern = true;
+			}
+		}
+		// 플레이 초 단위 표기
 		playtime_s++;
 		if (playtime_s < 60 && playtime_m == 0)
 		{
 			printf("PlayTime : %d second\n", playtime_s);
 		}
+		// 플레이 분 단위 표기
 		else if (playtime_s == 60)
 		{
 			playtime_m++;
@@ -79,3 +104,25 @@ void Avoid_N_Survive::IsGround()
 		player->SetPositionY(g_pos.y + 25.1f);
 	}
 }
+
+void Avoid_N_Survive::RandomPattern()
+{
+	if (pattern)
+	{
+		pNumber = Random::GetRandomInt(1, 1);
+		if (pNumber == 1)
+			Firstpattern();
+	}
+}
+
+void Avoid_N_Survive::Firstpattern()
+{
+	Vector3 g_pos = ground->GetPosition();
+	if (g_pos.y < WinMaxHeight - 100)
+	{
+		g_pos.y += 100 * Time::Delta();
+		ground->SetPosition(g_pos);
+	}
+}
+
+
