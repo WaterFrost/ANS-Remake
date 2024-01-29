@@ -79,3 +79,25 @@ void Player::Control()
 		jumptime = 0.0f;
 	}
 }
+
+void Player::Immu()
+{
+	// 플레이어 무적시간 설정
+	if (immu)
+	{
+		immudelay += Time::Delta();
+	}
+	else if (immudelay > 0.33f)
+	{
+		immu = false;
+		immudelay = 0.0f;
+	}
+}
+
+void Player::IsWall()
+{
+	if (GetPositionX() >= WinMaxWidth-15)
+		SetPositionX(WinMaxWidth-15);
+	else if (GetPositionX() <= 15)
+		SetPositionX(15);
+}

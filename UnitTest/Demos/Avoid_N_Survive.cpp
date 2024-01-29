@@ -25,6 +25,26 @@ void Avoid_N_Survive::Destroy()
 
 void Avoid_N_Survive::Update()
 {
+	GameTimer();
+	// 플레이어 움직임 관련 함수 불러오기
+	player->Control();
+	player->IsWall();
+
+	// 플레이어와 땅 충돌 확인
+	IsGround();
+
+	player->Update();
+	ground->Update();
+}
+
+void Avoid_N_Survive::Render()
+{
+	ground->Render();
+	player->Render();
+}
+
+void Avoid_N_Survive::GameTimer()
+{
 	deltatime += Time::Delta();
 	if (deltatime >= 1)
 	{
@@ -44,27 +64,6 @@ void Avoid_N_Survive::Update()
 			printf("PlayTime : %d minute %d second\n", playtime_m, playtime_s);
 		}
 	}
-
-	player->Control();
-
-	IsGround();
-
-	player->Update();
-	ground->Update();
-}
-
-void Avoid_N_Survive::Render()
-{
-	ground->Render();
-	player->Render();
-}
-
-void Avoid_N_Survive::PostRender()
-{
-}
-
-void Avoid_N_Survive::GUI()
-{
 }
 
 void Avoid_N_Survive::IsGround()

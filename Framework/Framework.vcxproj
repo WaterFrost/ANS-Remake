@@ -153,6 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ANS\Enemy.cpp" />
     <ClCompile Include="ANS\Player.cpp" />
     <ClCompile Include="Framework.cpp" />
     <ClCompile Include="Geomatries\AnimationRect.cpp" />
@@ -183,6 +184,7 @@
     <ClCompile Include="Utilities\String.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ANS\Enemy.h" />
     <ClInclude Include="ANS\Player.h" />
     <ClInclude Include="Framework.h" />
     <ClInclude Include="Geomatries\AnimationRect.h" />
