@@ -11,14 +11,18 @@ public:
 
 	void Control();
 	void Immu();
+	void IsWall();
 	// Setter
 	void Sethp(int point) { hp = point; }
 	void SetGroud(bool state) { ground = state; }
 	void SetJumpScale(float power) { jumpPower = power; }
+	void SetImmu(bool set) { immu = set; }
+
 	// Getter
 	int GetHp() { return hp; }
 	float GetJumpPower() { return jumpPower; }
 	bool GetGround() { return ground; }
+	bool GetImmu() { return immu; }
 private:
 	
 	// 플레이어 상태

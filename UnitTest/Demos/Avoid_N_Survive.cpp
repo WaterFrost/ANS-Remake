@@ -46,6 +46,7 @@ void Avoid_N_Survive::Update()
 	}
 
 	player->Control();
+	player->IsWall();
 
 	IsGround();
 
