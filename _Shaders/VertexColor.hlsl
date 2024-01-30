@@ -50,11 +50,10 @@ cbuffer AlphaBuffer : register(b0)
 float4 PS(PixelInput input)	: SV_Target
 {
     float4 color = input.color;
-    color.a = alpha;
-//    color.r = mul(color.r, alpha);
-  //  color.g = mul(color.g, alpha);
-    //color.b = mul(color.b, alpha);
-    //color.a = mul(color.a, alpha);
+    color.r = mul(color.r, alpha);
+    color.g = mul(color.g, alpha);
+    color.b = mul(color.b, alpha);
+    color.a = mul(color.a, alpha);
 	
 	return color;
 }

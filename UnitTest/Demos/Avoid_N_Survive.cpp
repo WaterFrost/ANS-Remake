@@ -15,6 +15,7 @@ void Avoid_N_Survive::Init()
 	Sounds::Get()->addSound("BGM", SoundPath + L"ANS.mp3", true);
 	Sounds::Get()->Play("BGM", 0.2f);
 
+	CreateEnemy();
 }
 
 void Avoid_N_Survive::Destroy()
@@ -38,10 +39,14 @@ void Avoid_N_Survive::Update()
 
 	player->Update();
 	ground->Update();
+	for (Enemy* E : enemy)
+		E->Update();
 }
 
 void Avoid_N_Survive::Render()
 {
+	for (Enemy* E : enemy)
+		E->Render();
 	ground->Render();
 	player->Render();
 }
@@ -60,24 +65,26 @@ void Avoid_N_Survive::GameTime()
 	if (deltatime >= 1)
 	{
 		// 1초 마다 -1
-		deltatime--;
+		deltatime = 0;
 
 		// 패턴 출력 시간 관리
-		
 		if (!pattern)
 		{
 			pTime++;
-			if (pTime < 3)
+			if (pTime >= 3)
 			{
 				pattern = true;
+				pTime = 0;
 			}
 		}
+
 		// 플레이 초 단위 표기
 		playtime_s++;
 		if (playtime_s < 60 && playtime_m == 0)
 		{
 			printf("PlayTime : %d second\n", playtime_s);
 		}
+
 		// 플레이 분 단위 표기
 		else if (playtime_s == 60)
 		{
@@ -105,6 +112,16 @@ void Avoid_N_Survive::IsGround()
 	}
 }
 
+void Avoid_N_Survive::CreateEnemy()
+{
+	for (int i = 0; i < 5; i++)
+	{
+		enemy.push_back(new Enemy(Vector3(WinMaxWidth * 0.5f, WinMaxHeight * 2, 0), Vector3(50, 50, 1), 0.0f));
+		enemy[i]->SetColor(Values::Red);
+		enemy[i]->Setalpha(0.f);
+	}
+}
+
 void Avoid_N_Survive::RandomPattern()
 {
 	if (pattern)
@@ -118,11 +135,45 @@ void Avoid_N_Survive::RandomPattern()
 void Avoid_N_Survive::Firstpattern()
 {
 	Vector3 g_pos = ground->GetPosition();
+	Vector3 p_pos = player->GetPosition();
 	if (g_pos.y < WinMaxHeight - 100)
 	{
 		g_pos.y += 100 * Time::Delta();
 		ground->SetPosition(g_pos);
 	}
+	if (ground->GetPosition().y >= WinMaxHeight - 100)
+	{
+		if (ground->GetAlpha() >= 0.f)
+		{
+			ground->Setalpha(ground->GetAlpha() - 0.001f);
+		}
+		else if (ground->GetAlpha() <= 0.f)
+		{
+			ground->SetPositionY(WinMaxHeight * 2);
+			player->SetGroud(false);
+		}
+		if (enemy[4]->GetPosition().y > WinMaxHeight)
+		{
+			for (Enemy* E : enemy)
+			{
+				E->GetRandomPosition(0, WinMaxWidth, 100, WinMaxHeight - 150);
+			}
+		}
+		if (enemy[4]->GetAlpha() < 1.f)
+		{
+			for (Enemy* E : enemy)
+			{
+				E->Setalpha(E->GetAlpha() + 0.001f);
+			}
+		}
+		if (p_pos.y < 0)
+		{
+			p_pos.y = WinMaxHeight + 150;
+			player->SetPosition(p_pos);
+		}
+	}
+	
+	
 }
 
 

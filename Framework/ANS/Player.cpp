@@ -66,7 +66,9 @@ void Player::Control()
 	// ³«ÇÏ È°¼º½Ã
 	if (fall)
 	{
-		jumptime = jumptime + 10*Time::Delta();
+		jumptime = jumptime + 10 * Time::Delta();
+		if (jumptime > 3)
+			jumptime = 3;
 		SetPositionY(GetPosition().y - jumptime);
 	}
 
@@ -77,6 +79,10 @@ void Player::Control()
 		jump = false;
 		doublejump = false;
 		jumptime = 0.0f;
+	}
+	else if (!ground && !jump)
+	{
+		fall = true;
 	}
 }
 
