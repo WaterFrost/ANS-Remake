@@ -17,12 +17,12 @@ void Enemy::GetRandomPosition(int minX, int maxX, int minY, int maxY)
 
 void Enemy::Move()
 {
-	if (MoveR)
+	if (moveNum == 1)
 	{
-		SetPositionX(GetPositionX() + 1);
+		SetPositionX(GetPositionX() + movespeed * Time::Delta());
 	}
-	else if (!MoveR)
+	else if (moveNum == 2)
 	{
-		SetPositionX(GetPositionX() - 1);
+		SetPositionX(GetPositionX() - movespeed * Time::Delta());
 	}
 }

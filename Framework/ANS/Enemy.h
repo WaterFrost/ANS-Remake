@@ -11,11 +11,12 @@ public:
 	void Move();
 
 	// setter
-	void SetMoveR(bool R) { MoveR = R; }
+	void SetMoveNum(int move) { moveNum = move; }
+	void SetSpeed(int speed) { movespeed = speed; }
 	// getter
-	bool Getter() { return MoveR; }
-
+	bool GetMoveNum() { return moveNum; }
 private:
 	
-	bool MoveR = false;
+	int moveNum = 0;
+	int movespeed = 100;
 };
