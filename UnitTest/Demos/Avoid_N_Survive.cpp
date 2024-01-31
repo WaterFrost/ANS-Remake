@@ -4,23 +4,36 @@
 
 void Avoid_N_Survive::Init()
 {
+	// 플레이어 생성및 색상지정
 	player = new Player(Vector3(WinMaxWidth * 0.5f, WinMaxHeight * 0.5f, 0), Vector3(30, 30, 1), 0.0f);
 	player->SetColor(Values::Green);
 	player->Update();
-
+	
+	// 그라운드 생성 및 색상지정
 	ground = new Rect(Vector3(WinMaxWidth * 0.5, 10, 0), Vector3(WinMaxWidth, 20, 1), 0.0f);
 	ground->SetColor(Values::Green);
 	ground->Update();
 
+	// 음악 재생
 	Sounds::Get()->addSound("BGM", SoundPath + L"ANS.mp3", true);
 	Sounds::Get()->Play("BGM", 0.2f);
 
+	// 체력이미지 생성
 	CreateHP();
+	// 적 생성
 	CreateEnemy();
 }
 
 void Avoid_N_Survive::Destroy()
 {
+	for (Enemy* E : enemy)
+	{
+		SAFE_DELETE(E)
+	}
+	for (TextureRect* Hp : hp)
+	{
+		SAFE_DELETE(Hp)
+	}
 	SAFE_DELETE(ground);
 	SAFE_DELETE(player);
 }
@@ -111,10 +124,12 @@ void Avoid_N_Survive::GameTime()
 
 void Avoid_N_Survive::IsGround()
 {
+	// 플레이어와 땅의 충돌시 플레이어 내부의 SetGround 함수에 true 전달
 	if (BoundingBox::AABB(player->GetCollision(), ground->GetCollision()) == true)
 	{
 		player->SetGroud(true);
 	}
+	// 플레이어의 ground가 활성일 경우 플레이어의 위치를 그라운드와 충돌하지않는 조금위로 변경
 	if (player->GetGround())
 	{
 		Vector3 g_pos = ground->GetPosition();
@@ -125,7 +140,6 @@ void Avoid_N_Survive::IsGround()
 
 void Avoid_N_Survive::SetHPposition()
 {
-	// 플레이어 체력값 만큼 체력을 출력
 	// 플레이어의 체력보다 높은 순서는 위치 이동
 	int php = player->GetHp();
 	if (player->GetHp() <= 4 && player->GetHp()>-1)
@@ -136,6 +150,7 @@ void Avoid_N_Survive::SetHPposition()
 
 void Avoid_N_Survive::CreateHP()
 {
+	// 체력 이미지 생성
 	hp.push_back(new TextureRect(Vector3(50, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
 	hp.push_back(new TextureRect(Vector3(75, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
 	hp.push_back(new TextureRect(Vector3(100, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
@@ -145,6 +160,7 @@ void Avoid_N_Survive::CreateHP()
 
 void Avoid_N_Survive::CreateEnemy()
 {
+	// 적객체 생성
 	for (int i = 0; i < 10; i++)
 	{
 		enemy.push_back(new Enemy(Vector3(WinMaxWidth * 0.5f, WinMaxHeight * 2, 0), Vector3(50, 50, 1), 0.0f));
@@ -155,6 +171,7 @@ void Avoid_N_Survive::CreateEnemy()
 
 void Avoid_N_Survive::RandomPattern()
 {
+	// 랜덤 패턴 부여
 	if (pattern)
 	{
 		pNumber = Random::GetRandomInt(1, 1);
@@ -230,6 +247,7 @@ void Avoid_N_Survive::Firstpattern()
 		{
 			p_pos.y = WinMaxHeight + 150;
 			player->SetPosition(p_pos);
+			fallcount++;
 		}
 	}
 	//적의위치가 중간 보다 왼쪽일때 오른쪽으로 이동하는 코드 부여
@@ -256,7 +274,20 @@ void Avoid_N_Survive::Firstpattern()
 		{
 			E->SetMoveNum(2);
 		}
-
+	}
+	// 패턴 종료 코드
+	if (fallcount > 5)
+	{
+		pNumber = 0;
+		pattern = false;
+		ground->SetPositionY(10);
+		ground->Setalpha(1.f);
+		for (Enemy* E : enemy)
+		{
+			E->SetMoveNum(0);
+			E->SetPosition(Vector3(WinMaxWidth * 0.5f, WinMaxHeight * 2, 0));
+			E->Setalpha(0);
+		}
 	}
 
 
