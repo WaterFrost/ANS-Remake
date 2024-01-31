@@ -92,11 +92,13 @@ void Player::Immu()
 	if (immu)
 	{
 		immudelay += Time::Delta();
-	}
-	else if (immudelay > 0.33f)
-	{
-		immu = false;
-		immudelay = 0.0f;
+		SetColor(Values::Blue);
+		if (immudelay > 0.33f)
+		{
+			immu = false;
+			immudelay = 0.0f;
+			SetColor(Values::Green);
+		}
 	}
 }
 

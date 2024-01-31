@@ -16,7 +16,10 @@ public:
     void SetShader(wstring shaderPath);
 
     Vector3 GetPosition() { return this->position; }
+
     void SetPosition(Vector3 newPos) { this->position = newPos; }
+    void SetPositionX(float newX) { position.x = newX; }
+    void SetPositionY(float newY) { position.y = newY; }
 
 
 protected:

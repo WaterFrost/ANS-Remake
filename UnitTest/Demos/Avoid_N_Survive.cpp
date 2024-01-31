@@ -15,6 +15,7 @@ void Avoid_N_Survive::Init()
 	Sounds::Get()->addSound("BGM", SoundPath + L"ANS.mp3", true);
 	Sounds::Get()->Play("BGM", 0.2f);
 
+	CreateHP();
 	CreateEnemy();
 }
 
@@ -33,7 +34,11 @@ void Avoid_N_Survive::Update()
 	// 플레이어 움직임 관련 함수 불러오기
 	player->Control();
 	player->IsWall();
-
+	// 플레이어 무적 판정
+	player->Immu();
+	
+	// 플레이어 체력만큼 hp 이미지 출력
+	SetHPposition();
 	// 플레이어와 땅 충돌 확인
 	IsGround();
 
@@ -41,12 +46,16 @@ void Avoid_N_Survive::Update()
 	ground->Update();
 	for (Enemy* E : enemy)
 		E->Update();
+	for (TextureRect* HP : hp)
+		HP->Update();
 }
 
 void Avoid_N_Survive::Render()
 {
 	for (Enemy* E : enemy)
 		E->Render();
+	for (TextureRect* HP : hp)
+		HP->Render();
 	ground->Render();
 	player->Render();
 }
@@ -83,6 +92,8 @@ void Avoid_N_Survive::GameTime()
 		if (playtime_s < 60 && playtime_m == 0)
 		{
 			printf("PlayTime : %d second\n", playtime_s);
+			printf("Hp : %d \n", player->GetHp());
+			printf("Immu : %d\n", player->GetImmu());
 		}
 
 		// 플레이 분 단위 표기
@@ -110,6 +121,26 @@ void Avoid_N_Survive::IsGround()
 		Vector3 p_pos = player->GetPosition();
 		player->SetPositionY(g_pos.y + 25.1f);
 	}
+}
+
+void Avoid_N_Survive::SetHPposition()
+{
+	// 플레이어 체력값 만큼 체력을 출력
+	// 플레이어의 체력보다 높은 순서는 위치 이동
+	int php = player->GetHp();
+	if (player->GetHp() <= 4 && player->GetHp()>-1)
+	{
+		hp[php]->SetPositionY(hp[php]->GetPosition().y * 2);
+	}
+}
+
+void Avoid_N_Survive::CreateHP()
+{
+	hp.push_back(new TextureRect(Vector3(50, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
+	hp.push_back(new TextureRect(Vector3(75, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
+	hp.push_back(new TextureRect(Vector3(100, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
+	hp.push_back(new TextureRect(Vector3(125, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
+	hp.push_back(new TextureRect(Vector3(150, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
 }
 
 void Avoid_N_Survive::CreateEnemy()
@@ -146,6 +177,7 @@ void Avoid_N_Survive::Firstpattern()
 	// 그라운드의 위치가 WinMaxHeight-100 이상일때
 	if (ground->GetPosition().y >= WinMaxHeight - 100)
 	{
+
 		// 그라운드 알파값 내리기
 		if (ground->GetAlpha() >= 0.f)
 		{
@@ -173,15 +205,26 @@ void Avoid_N_Survive::Firstpattern()
 				E->Setalpha(E->GetAlpha() + 0.001f);
 			}
 		}
-		
+
 		// 마지막 적 객체의 알파값이 1이상일때 이동 활성화
 		if (enemy[4]->GetAlpha() >= 1.0f)
 		{
 			for (Enemy* E : enemy)
 			{
 				E->Move();
+				
 			}
 		}
+		// 플레이어거 적 개체와 충돌시 체력 감소
+		for (Enemy* E : enemy)
+		{
+			if (BoundingBox::AABB(player->GetCollision(), E->GetCollision()) == true && !player->GetImmu())
+			{
+				player->SetImmu(true);
+				player->Sethp(player->GetHp() - 1);
+			}
+		}
+		
 		// 플레이어 Y값이 0이하일때 위로 올리는 코드
 		if (p_pos.y < 0)
 		{
@@ -213,10 +256,10 @@ void Avoid_N_Survive::Firstpattern()
 		{
 			E->SetMoveNum(2);
 		}
-		
+
 	}
-	
-	
+
+
 }
 
 

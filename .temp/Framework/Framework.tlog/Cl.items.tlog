@@ -1,29 +1,29 @@
-C:\Users\user\Desktop\new ANS\Framework\ANS\Enemy.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Enemy.obj
-C:\Users\user\Desktop\new ANS\Framework\ANS\Player.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Player.obj
-C:\Users\user\Desktop\new ANS\Framework\Framework.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Framework.obj
-C:\Users\user\Desktop\new ANS\Framework\Geomatries\AnimationRect.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\AnimationRect.obj
-C:\Users\user\Desktop\new ANS\Framework\Geomatries\Rect.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Rect.obj
-C:\Users\user\Desktop\new ANS\Framework\Geomatries\ShadedTexture.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\ShadedTexture.obj
-C:\Users\user\Desktop\new ANS\Framework\Geomatries\TextureRect.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\TextureRect.obj
-C:\Users\user\Desktop\new ANS\Framework\Renders\IA\IndexBuffer.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\IndexBuffer.obj
-C:\Users\user\Desktop\new ANS\Framework\Renders\IA\InputLayout.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\InputLayout.obj
-C:\Users\user\Desktop\new ANS\Framework\Renders\IA\VertexBuffer.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\VertexBuffer.obj
-C:\Users\user\Desktop\new ANS\Framework\Renders\Resources\Texture2D.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Texture2D.obj
-C:\Users\user\Desktop\new ANS\Framework\Renders\Resources\VertexType.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\VertexType.obj
-C:\Users\user\Desktop\new ANS\Framework\Renders\Shaders\IShader.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\IShader.obj
-C:\Users\user\Desktop\new ANS\Framework\Renders\Shaders\PixelShader.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\PixelShader.obj
-C:\Users\user\Desktop\new ANS\Framework\Renders\Shaders\VertexShader.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\VertexShader.obj
-C:\Users\user\Desktop\new ANS\Framework\Renders\States.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\States.obj
-C:\Users\user\Desktop\new ANS\Framework\Systems\Graphics.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Graphics.obj
-C:\Users\user\Desktop\new ANS\Framework\Systems\Keyboard.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Keyboard.obj
-C:\Users\user\Desktop\new ANS\Framework\Systems\Mouse.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Mouse.obj
-C:\Users\user\Desktop\new ANS\Framework\Systems\Sound.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Sound.obj
-C:\Users\user\Desktop\new ANS\Framework\Systems\Time.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Time.obj
-C:\Users\user\Desktop\new ANS\Framework\Systems\Window.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Window.obj
-C:\Users\user\Desktop\new ANS\Framework\Utilities\Animator.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Animator.obj
-C:\Users\user\Desktop\new ANS\Framework\Utilities\BoundingBox.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\BoundingBox.obj
-C:\Users\user\Desktop\new ANS\Framework\Utilities\DirectHelper.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\DirectHelper.obj
-C:\Users\user\Desktop\new ANS\Framework\Utilities\Gui.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Gui.obj
-C:\Users\user\Desktop\new ANS\Framework\Utilities\Path.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Path.obj
-C:\Users\user\Desktop\new ANS\Framework\Utilities\Random.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Random.obj
-C:\Users\user\Desktop\new ANS\Framework\Utilities\String.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\String.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\ANS\Enemy.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Enemy.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\ANS\Player.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Player.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Framework.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Framework.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Geomatries\AnimationRect.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\AnimationRect.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Geomatries\Rect.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Rect.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Geomatries\ShadedTexture.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\ShadedTexture.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Geomatries\TextureRect.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\TextureRect.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Renders\IA\IndexBuffer.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\IndexBuffer.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Renders\IA\InputLayout.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\InputLayout.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Renders\IA\VertexBuffer.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\VertexBuffer.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Renders\Resources\Texture2D.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Texture2D.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Renders\Resources\VertexType.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\VertexType.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Renders\Shaders\IShader.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\IShader.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Renders\Shaders\PixelShader.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\PixelShader.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Renders\Shaders\VertexShader.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\VertexShader.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Renders\States.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\States.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Systems\Graphics.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Graphics.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Systems\Keyboard.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Keyboard.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Systems\Mouse.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Mouse.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Systems\Sound.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Sound.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Systems\Time.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Time.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Systems\Window.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Window.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Utilities\Animator.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Animator.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Utilities\BoundingBox.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\BoundingBox.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Utilities\DirectHelper.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\DirectHelper.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Utilities\Gui.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Gui.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Utilities\Path.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Path.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Utilities\Random.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\Random.obj
+C:\Users\WaterFrost\Desktop\ANS-Remake\Framework\Utilities\String.cpp;C:\Users\WaterFrost\Desktop\ANS-Remake\.temp\Framework\String.obj
