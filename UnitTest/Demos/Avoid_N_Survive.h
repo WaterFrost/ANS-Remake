@@ -25,6 +25,7 @@ class Avoid_N_Survive : public IObject
 	// 패턴 관련 함수
 	void RandomPattern(); // 랜덤 패턴 부여 함수
 	void Firstpattern(); // 첫번째 패턴
+	void Secondpattern(); // 두번째 패턴
 private:
 
 	// 그림 관련
@@ -46,7 +47,8 @@ private:
 
 	// 이한석 패턴
 	int fallcount = 0;
-
+	
+	bool onsound = false;
 	bool Isvisible = true;
 
 };

@@ -8,7 +8,7 @@ void Avoid_N_Survive::Init()
 	player = new Player(Vector3(WinMaxWidth * 0.5f, WinMaxHeight * 0.5f, 0), Vector3(30, 30, 1), 0.0f);
 	player->SetColor(Values::Green);
 	player->Update();
-	
+
 	// 그라운드 생성 및 색상지정
 	ground = new Rect(Vector3(WinMaxWidth * 0.5, 10, 0), Vector3(WinMaxWidth, 20, 1), 0.0f);
 	ground->SetColor(Values::Green);
@@ -17,6 +17,9 @@ void Avoid_N_Survive::Init()
 	// 음악 재생
 	Sounds::Get()->addSound("BGM", SoundPath + L"ANS.mp3", true);
 	Sounds::Get()->Play("BGM", 0.2f);
+
+	// 효과음 추가
+	Sounds::Get()->addSound("UpSound", SoundPath + L"tower.mp3");
 
 	// 체력이미지 생성
 	CreateHP();
@@ -49,7 +52,7 @@ void Avoid_N_Survive::Update()
 	player->IsWall();
 	// 플레이어 무적 판정
 	player->Immu();
-	
+
 	// 플레이어 체력만큼 hp 이미지 출력
 	SetHPposition();
 	// 플레이어와 땅 충돌 확인
@@ -142,7 +145,7 @@ void Avoid_N_Survive::SetHPposition()
 {
 	// 플레이어의 체력보다 높은 순서는 위치 이동
 	int php = player->GetHp();
-	if (player->GetHp() <= 4 && player->GetHp()>-1)
+	if (player->GetHp() <= 4 && player->GetHp() > -1)
 	{
 		hp[php]->SetPositionY(hp[php]->GetPosition().y * 2);
 	}
@@ -176,7 +179,10 @@ void Avoid_N_Survive::RandomPattern()
 	{
 		pNumber = Random::GetRandomInt(1, 1);
 		if (pNumber == 1)
+		{
+
 			Firstpattern();
+		}
 	}
 }
 
@@ -184,6 +190,11 @@ void Avoid_N_Survive::Firstpattern()
 {
 	Vector3 g_pos = ground->GetPosition();
 	Vector3 p_pos = player->GetPosition();
+	if (!onsound)
+	{
+		Sounds::Get()->Play("UpSound", 0.2f);
+		onsound = true;
+	}
 	// 그라운드 조금씩 위로 이동
 	if (g_pos.y < WinMaxHeight - 100)
 	{
@@ -229,7 +240,7 @@ void Avoid_N_Survive::Firstpattern()
 			for (Enemy* E : enemy)
 			{
 				E->Move();
-				
+
 			}
 		}
 		// 플레이어거 적 개체와 충돌시 체력 감소
@@ -241,7 +252,7 @@ void Avoid_N_Survive::Firstpattern()
 				player->Sethp(player->GetHp() - 1);
 			}
 		}
-		
+
 		// 플레이어 Y값이 0이하일때 위로 올리는 코드
 		if (p_pos.y < 0)
 		{
