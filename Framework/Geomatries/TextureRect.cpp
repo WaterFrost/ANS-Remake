@@ -61,7 +61,7 @@ TextureRect::TextureRect(Vector3 position, Vector3 size, float rotation, wstring
     {
         wb = new WorldBuffer();
     }
-
+    ab = new AlphaBuffer();
     // Rasterizer State
     {
         D3D11_RASTERIZER_DESC desc;
@@ -157,10 +157,13 @@ TextureRect::TextureRect(Vector3 position, Vector3 size, float rotation)
     {
         wb = new WorldBuffer();
     }
+    ab = new AlphaBuffer();
 }
 
 TextureRect::~TextureRect()
 {
+    SAFE_DELETE(ab);
+
     SAFE_RELEASE(srv);
     SAFE_RELEASE(rs);
 
@@ -200,6 +203,7 @@ void TextureRect::Render()
     wb->SetVSBuffer(0);
 
     ps->SetShader();
+    ab->SetPSBuffer(0);
 
     DC->PSSetShaderResources(0, 1, &srv);
     DC->RSSetState(rs);

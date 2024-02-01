@@ -21,6 +21,9 @@ void Avoid_N_Survive::Init()
 	// 효과음 추가
 	Sounds::Get()->addSound("UpSound", SoundPath + L"tower.mp3");
 
+	// 스코어 이미지 출력
+	scoreimg = new TextureRect(Vector3(90, WinMaxHeight-100, 0), Vector3(128, 72, 1), 0.0f, TexturePath + L"Score.png");
+	scoreimg->Setalpha(0.33f);
 	// 체력이미지 생성
 	CreateHP();
 	// 적 생성
@@ -60,14 +63,17 @@ void Avoid_N_Survive::Update()
 
 	player->Update();
 	ground->Update();
+	scoreimg->Update();
 	for (Enemy* E : enemy)
 		E->Update();
 	for (TextureRect* HP : hp)
 		HP->Update();
+	
 }
 
 void Avoid_N_Survive::Render()
 {
+	scoreimg->Render();
 	for (Enemy* E : enemy)
 		E->Render();
 	for (TextureRect* HP : hp)
@@ -155,10 +161,10 @@ void Avoid_N_Survive::CreateHP()
 {
 	// 체력 이미지 생성
 	hp.push_back(new TextureRect(Vector3(50, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
-	hp.push_back(new TextureRect(Vector3(75, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
-	hp.push_back(new TextureRect(Vector3(100, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
-	hp.push_back(new TextureRect(Vector3(125, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
-	hp.push_back(new TextureRect(Vector3(150, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
+	hp.push_back(new TextureRect(Vector3(75 + 5, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
+	hp.push_back(new TextureRect(Vector3(100 + 10, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
+	hp.push_back(new TextureRect(Vector3(125 + 15, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
+	hp.push_back(new TextureRect(Vector3(150 + 20, WinMaxHeight - 50, 0), Vector3(25, 50, 1), 0.0f, TexturePath + L"playerHP.png"));
 }
 
 void Avoid_N_Survive::CreateEnemy()
@@ -243,7 +249,7 @@ void Avoid_N_Survive::Firstpattern()
 
 			}
 		}
-		// 플레이어거 적 개체와 충돌시 체력 감소
+		// 플레이어거 적 개체와 충돌시 체력 감소 및 무적판정 부여
 		for (Enemy* E : enemy)
 		{
 			if (BoundingBox::AABB(player->GetCollision(), E->GetCollision()) == true && !player->GetImmu())

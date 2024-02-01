@@ -14,13 +14,15 @@ public:
     
     void SetSRV(ID3D11ShaderResourceView* srv) { this->srv = srv; }
     void SetShader(wstring shaderPath);
-
+    
     Vector3 GetPosition() { return this->position; }
 
     void SetPosition(Vector3 newPos) { this->position = newPos; }
     void SetPositionX(float newX) { position.x = newX; }
     void SetPositionY(float newY) { position.y = newY; }
 
+    void Setalpha(float alpha) { ab->SetAlpha(alpha); }
+    float Getalpha() { return ab->GetAlpha(); }
 
 protected:
     vector<VertexTexture> vertices;
@@ -47,4 +49,5 @@ protected:
     ID3D11RasterizerState* rs = nullptr;
 
     D3D11_MAPPED_SUBRESOURCE subResource;
+    AlphaBuffer* ab = nullptr;
 };

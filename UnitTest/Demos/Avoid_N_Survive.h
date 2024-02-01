@@ -16,7 +16,9 @@ class Avoid_N_Survive : public IObject
 	// ANS 관련함수
 	void GameTime(); // 게임시간 측정후 시간 출력 및 패턴 출력 용도
 	void IsGround(); // ground 와 player 확인
-	void SetHPposition();
+	void SetHPposition(); // 플레이어 체력에 따른 이미지 출력
+	void GameOver();
+	void Rank();
 	
 	// 생성 관련 함수
 	void CreateHP();
@@ -31,11 +33,14 @@ private:
 	// 그림 관련
 	Player* player;
 	Rect* ground;
+	TextureRect* scoreimg;
 	vector<TextureRect*> hp;
 	vector<Enemy*> enemy;
 
 	// 변수 관련
 	
+	// 점수 관련 변수
+	int pscore = 0;
 	// 플레이 시간
 	float deltatime = 0.f;
 	int playtime_s = 0;
