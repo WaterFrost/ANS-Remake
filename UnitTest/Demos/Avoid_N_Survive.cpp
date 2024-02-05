@@ -386,7 +386,6 @@ void Avoid_N_Survive::Firstpattern()
 			for (Enemy* E : enemy)
 			{
 				E->Move();
-
 			}
 		}
 
@@ -432,6 +431,7 @@ void Avoid_N_Survive::Firstpattern()
 		onsound = false;
 		ground->SetPositionY(10);
 		ground->Setalpha(1.f);
+		fallcount = 0;
 		for (Enemy* E : enemy)
 		{
 			E->SetMoveNum(0);
@@ -441,6 +441,15 @@ void Avoid_N_Survive::Firstpattern()
 	}
 
 
+}
+
+void Avoid_N_Survive::Secondpattern()
+{
+	// ¸Ê Áß¾Ó ¿ÞÂÊ ¿À¸¥ÂÊ ¼ø¼­·Î ±âµÕÀ» »ý¼º
+	if (pNumber == 2)
+	{
+
+	}
 }
 
 
