@@ -25,12 +25,12 @@ void Player::Control()
 		moveR = true;
 		position.x += 300 * Time::Delta();
 	}
-	if (Keyboard::Get()->Up('D'))
+	if (Keyboard::Get()->Up(VK_RIGHT) || Keyboard::Get()->Up('D'))
 	{
 		moveR = false;
 	}
 
-	// 더블 점프 활성 
+	// 더블 점프 기능 구현
 	if (jump && !doublejump && Keyboard::Get()->Down(VK_SPACE))
 	{
 		doublejump = true;
@@ -44,7 +44,7 @@ void Player::Control()
 		doublejump = true;
 	}
 
-	// 점프 활성화
+	// 점프 기능 활성화
 	if (Keyboard::Get()->Down(VK_SPACE) && ground)
 	{
 		ground = false;
@@ -80,6 +80,7 @@ void Player::Control()
 		doublejump = false;
 		jumptime = 0.0f;
 	}
+	// 아래에 아무것도 없고 점프 상태가 아닐때
 	else if (!ground && !jump)
 	{
 		fall = true;

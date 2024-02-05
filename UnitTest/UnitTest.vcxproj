@@ -146,25 +146,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Demos\00_RectDemo.h" />
-    <ClInclude Include="Demos\01_TextureDemo.h" />
-    <ClInclude Include="Demos\02_CollisionDemo.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="Demos\03_ShadedDemo.h" />
-    <ClInclude Include="Demos\04_AnimDemo.h" />
     <ClInclude Include="Demos\Avoid_N_Survive.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Demos\00_RectDemo.cpp" />
-    <ClCompile Include="Demos\01_TextureDemo.cpp" />
-    <ClCompile Include="Demos\02_CollisionDemo.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="Demos\03_ShadedDemo.cpp" />
-    <ClCompile Include="Demos\04_AnimDemo.cpp" />
     <ClCompile Include="Demos\Avoid_N_Survive.cpp" />
     <ClCompile Include="Program.cpp" />
   </ItemGroup>

@@ -3,11 +3,6 @@
 
 #include "Systems/Window.h"
 
-#include "Demos/00_RectDemo.h"
-#include "Demos/01_TextureDemo.h"
-//#include "Demos/02_CollisionDemo.h"
-#include "Demos/03_ShadedDemo.h"
-#include "Demos/04_AnimDemo.h"
 #include "Demos/Avoid_N_Survive.h"
 
 void Program::Init()
