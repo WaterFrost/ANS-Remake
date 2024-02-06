@@ -18,11 +18,16 @@ class Avoid_N_Survive : public IObject
 	void IsGround(); // ground 와 player 확인
 	void SetHPposition(); // 플레이어 체력에 따른 이미지 출력
 	void GameOver();
+	void Reset();
 	void Rank();
+	void Hit();
 	
 	// 생성 관련 함수
+	void AddSounds();
+	void AddImages();
 	void CreateHP();
 	void CreateEnemy();
+	
 
 	// 패턴 관련 함수
 	void RandomPattern(); // 랜덤 패턴 부여 함수
@@ -33,18 +38,25 @@ private:
 	// 그림 관련
 	Player* player;
 	Rect* ground;
+
+	// 이미지
 	TextureRect* scoreimg;
+	TextureRect* img_GameOver;
+
 	vector<TextureRect*> hp;
+	vector<TextureRect*> rank;
 	vector<Enemy*> enemy;
 
-	// 변수 관련
-	
-	// 점수 관련 변수
+	// 게임 플레이 관련
+	bool death = false;
+	// 점수 관련
 	int pscore = 0;
+
 	// 플레이 시간
 	float deltatime = 0.f;
 	int playtime_s = 0;
 	int playtime_m = 0;
+
 	// 패턴 활성화 전용
 	bool pattern = false;
 	int pTime = 0;
