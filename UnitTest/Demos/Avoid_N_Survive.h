@@ -17,16 +17,16 @@ class Avoid_N_Survive : public IObject
 	void GameTime(); // 게임시간 측정후 시간 출력 및 패턴 출력 용도
 	void IsGround(); // ground 와 player 확인
 	void SetHPposition(); // 플레이어 체력에 따른 이미지 출력
-	void GameOver();
-	void Reset();
-	void Rank();
-	void Hit();
+	void GameOver(); // 게임 오버 출력
+	void Reset(); // 게임오버시 R키를 눌러 재시작
+	void Rank(); // 플레이 시간에 따른 랭크출력
+	void Hit(); // 피격판정
 	
 	// 생성 관련 함수
-	void AddSounds();
-	void AddImages();
-	void CreateHP();
-	void CreateEnemy();
+	void AddSounds(); // 사운드 추가
+	void AddImages(); // 이미지 추가
+	void CreateHP(); // 체력 생성
+	void CreateEnemy(); // 적 객체 생성
 	
 
 	// 패턴 관련 함수

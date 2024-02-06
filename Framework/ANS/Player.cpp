@@ -16,7 +16,7 @@ void Player::Control()
 	if (Keyboard::Get()->Press(VK_LEFT) || Keyboard::Get()->Press('A'))
 	{
 		position.x -= 300 * Time::Delta();
-		if (Keyboard::Get()->Press(VK_RIGHT) || Keyboard::Get()->Press('D') && !moveR)
+		if ((Keyboard::Get()->Press(VK_RIGHT) || Keyboard::Get()->Press('D')) && !moveR)
 			position.x += 600 * Time::Delta();
 	}
 

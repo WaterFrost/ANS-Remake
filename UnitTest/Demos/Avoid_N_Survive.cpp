@@ -201,6 +201,7 @@ void Avoid_N_Survive::Reset()
 	// 플레이어 상태 초기화
 	player->Sethp(5);
 	player->SetPosition(Vector3(WinMaxWidth * 0.5, WinMaxHeight * 0.5, 0));
+	player->SetImmu(false);
 	// 그라운드 상태 초기화
 	ground->SetPositionY(10);
 	ground->Setalpha(1);
