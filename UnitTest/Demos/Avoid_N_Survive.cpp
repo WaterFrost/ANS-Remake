@@ -186,7 +186,6 @@ void Avoid_N_Survive::RandomPattern()
 		pNumber = Random::GetRandomInt(1, 1);
 		if (pNumber == 1)
 		{
-
 			Firstpattern();
 		}
 	}
