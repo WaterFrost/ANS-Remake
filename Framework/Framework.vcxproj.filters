@@ -30,6 +30,10 @@
     <ClCompile Include="Systems\Sound.cpp" />
     <ClCompile Include="ANS\Player.cpp" />
     <ClCompile Include="ANS\Enemy.cpp" />
+    <ClCompile Include="Geomatries\Tile\Tile.cpp" />
+    <ClCompile Include="Geomatries\Tile\TileSet.cpp" />
+    <ClCompile Include="Utilities\FileStream.cpp" />
+    <ClCompile Include="Geomatries\Tile\TMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Systems\Graphics.h" />
@@ -65,5 +69,9 @@
     <ClInclude Include="Systems\Sound.h" />
     <ClInclude Include="ANS\Player.h" />
     <ClInclude Include="ANS\Enemy.h" />
+    <ClInclude Include="Geomatries\Tile\Tile.h" />
+    <ClInclude Include="Geomatries\Tile\TileSet.h" />
+    <ClInclude Include="Utilities\FileStream.h" />
+    <ClInclude Include="Geomatries\Tile\TMap.h" />
   </ItemGroup>
 </Project>

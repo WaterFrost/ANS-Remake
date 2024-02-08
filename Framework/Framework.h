@@ -18,6 +18,7 @@
 #include <random>
 #include <functional>
 #include <map>
+#include <fstream>
 
 using namespace std;
 
@@ -81,6 +82,8 @@ typedef D3DXMATRIX  Matrix;
 typedef D3DXCOLOR   Color;
 typedef UINT		uint;
 
+#include "Utilities/DirectHelper.h"
+
 #define DEVICE Graphics::Get()->GetDevice()
 #define DC     Graphics::Get()->GetDC()
 
@@ -103,11 +106,12 @@ typedef UINT		uint;
 #include "Renders/Shaders/VertexShader.h"
 #include "Renders/Shaders/PixelShader.h"
 
-#include "Utilities/DirectHelper.h"
+
 #include "Utilities/BoundingBox.h"
 #include "Utilities/Path.h"
 #include "Utilities/String.h"
 #include "Utilities/Animator.h"
+#include "Utilities/FileStream.h"
 
 #include "Geomatries/Rect.h"
 #include "Geomatries/ShadedTexture.h"

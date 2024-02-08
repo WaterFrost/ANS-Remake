@@ -160,6 +160,9 @@
     <ClCompile Include="Geomatries\Rect.cpp" />
     <ClCompile Include="Geomatries\ShadedTexture.cpp" />
     <ClCompile Include="Geomatries\TextureRect.cpp" />
+    <ClCompile Include="Geomatries\Tile\Tile.cpp" />
+    <ClCompile Include="Geomatries\Tile\TileSet.cpp" />
+    <ClCompile Include="Geomatries\Tile\TMap.cpp" />
     <ClCompile Include="Renders\IA\IndexBuffer.cpp" />
     <ClCompile Include="Renders\IA\InputLayout.cpp" />
     <ClCompile Include="Renders\IA\VertexBuffer.cpp" />
@@ -178,6 +181,7 @@
     <ClCompile Include="Utilities\Animator.cpp" />
     <ClCompile Include="Utilities\BoundingBox.cpp" />
     <ClCompile Include="Utilities\DirectHelper.cpp" />
+    <ClCompile Include="Utilities\FileStream.cpp" />
     <ClCompile Include="Utilities\Gui.cpp" />
     <ClCompile Include="Utilities\Path.cpp" />
     <ClCompile Include="Utilities\Random.cpp" />
@@ -191,6 +195,9 @@
     <ClInclude Include="Geomatries\Rect.h" />
     <ClInclude Include="Geomatries\ShadedTexture.h" />
     <ClInclude Include="Geomatries\TextureRect.h" />
+    <ClInclude Include="Geomatries\Tile\Tile.h" />
+    <ClInclude Include="Geomatries\Tile\TileSet.h" />
+    <ClInclude Include="Geomatries\Tile\TMap.h" />
     <ClInclude Include="Interfaces\IObject.h" />
     <ClInclude Include="Renders\IA\IndexBuffer.h" />
     <ClInclude Include="Renders\IA\InputLayout.h" />
@@ -212,6 +219,7 @@
     <ClInclude Include="Utilities\Animator.h" />
     <ClInclude Include="Utilities\BoundingBox.h" />
     <ClInclude Include="Utilities\DirectHelper.h" />
+    <ClInclude Include="Utilities\FileStream.h" />
     <ClInclude Include="Utilities\Gui.h" />
     <ClInclude Include="Utilities\Path.h" />
     <ClInclude Include="Utilities\Random.h" />

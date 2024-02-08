@@ -5,6 +5,9 @@ C:\Users\user\Desktop\new ANS\Framework\Geomatries\AnimationRect.cpp;C:\Users\us
 C:\Users\user\Desktop\new ANS\Framework\Geomatries\Rect.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Rect.obj
 C:\Users\user\Desktop\new ANS\Framework\Geomatries\ShadedTexture.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\ShadedTexture.obj
 C:\Users\user\Desktop\new ANS\Framework\Geomatries\TextureRect.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\TextureRect.obj
+C:\Users\user\Desktop\new ANS\Framework\Geomatries\Tile\Tile.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Tile.obj
+C:\Users\user\Desktop\new ANS\Framework\Geomatries\Tile\TileSet.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\TileSet.obj
+C:\Users\user\Desktop\new ANS\Framework\Geomatries\Tile\TMap.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\TMap.obj
 C:\Users\user\Desktop\new ANS\Framework\Renders\IA\IndexBuffer.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\IndexBuffer.obj
 C:\Users\user\Desktop\new ANS\Framework\Renders\IA\InputLayout.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\InputLayout.obj
 C:\Users\user\Desktop\new ANS\Framework\Renders\IA\VertexBuffer.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\VertexBuffer.obj
@@ -23,6 +26,7 @@ C:\Users\user\Desktop\new ANS\Framework\Systems\Window.cpp;C:\Users\user\Desktop
 C:\Users\user\Desktop\new ANS\Framework\Utilities\Animator.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Animator.obj
 C:\Users\user\Desktop\new ANS\Framework\Utilities\BoundingBox.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\BoundingBox.obj
 C:\Users\user\Desktop\new ANS\Framework\Utilities\DirectHelper.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\DirectHelper.obj
+C:\Users\user\Desktop\new ANS\Framework\Utilities\FileStream.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\FileStream.obj
 C:\Users\user\Desktop\new ANS\Framework\Utilities\Gui.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Gui.obj
 C:\Users\user\Desktop\new ANS\Framework\Utilities\Path.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Path.obj
 C:\Users\user\Desktop\new ANS\Framework\Utilities\Random.cpp;C:\Users\user\Desktop\new ANS\.temp\Framework\Random.obj
