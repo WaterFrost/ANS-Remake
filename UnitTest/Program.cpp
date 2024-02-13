@@ -4,6 +4,7 @@
 #include "Systems/Window.h"
 
 #include "Demos/Avoid_N_Survive.h"
+#include "Demos/05_TileMapDemo.h"
 
 void Program::Init()
 {
@@ -48,7 +49,8 @@ void Program::Init()
 //	Push(new CollisionDemo);
 //	Push(new ShadedDemo);
 //	Push(new AnimDemo);
-	Push(new Avoid_N_Survive);
+//	Push(new Avoid_N_Survive);
+	Push(new TileMapDemo);
 }
 
 void Program::Destroy()

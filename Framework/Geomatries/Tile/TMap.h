@@ -11,6 +11,7 @@ public:
 	{
 		data.index = 0;
 	}
+	void SetIndex(uint index) { data.index = index; }
 	struct Data
 	{
 		uint index;
@@ -44,8 +45,10 @@ public:
 	Tile* GetTile(Vector3 mPos);
 private:
 
-	vector<VertexTile> vertics;
+	vector<VertexTile> vertices;
 	VertexBuffer* vb = nullptr;
+
+	IndexBuffer* ib = nullptr;
 
 	InputLayout* il = nullptr;
 	vector<uint> indices;
