@@ -69,13 +69,14 @@ float4 PS(PixelInput input) : SV_Target
 {
     float4 color = _sourceTex.Sample(_samp, (float2) input.uv);
 	
-    if (input.uv.x > 0.0f || input.uv.y>0.0f)
+    if (input.uv.x > 0.0f || input.uv.y > 0.0f)
         color = color;  // 그림을 그린다
     else
         color = input.color; // 단색
+    
     if (input.index == _index)
     {
-        if(input.uv2.x<0.05f||input.uv2.x>0.95f||input.uv2.y<0.05f||input.uv2.y>0.95f)
+        if(input.uv2.x < 0.05f || input.uv2.x > 0.95f || input.uv2.y < 0.05f || input.uv2.y > 0.95f)
             color = float4(1, 0, 0, 1);
     }
     return color;

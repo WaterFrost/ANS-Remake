@@ -149,6 +149,7 @@ void TMap::Render()
 			wb->SetWorld(world);
 			wb->SetVSBuffer(0);
 			wb->SetPSBuffer(0);
+			inb->SetPSBuffer(0);
 			DC->DrawIndexed(ib->GetCount(), 0, 0);
 		}
 	}
