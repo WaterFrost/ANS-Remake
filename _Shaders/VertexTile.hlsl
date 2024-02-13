@@ -62,19 +62,12 @@ Texture2D _sourceTex : register(t0);
 // 샘플링 방식을 지정, 샘플러 슬롯 0번에 할당
 SamplerState _samp : register(s0);
 
-cbuffer AlphaBuffer : register(b1)
-{
-    float alpha;
-}
+
 
 
 float4 PS(PixelInput input) : SV_Target
 {
     float4 color = _sourceTex.Sample(_samp, (float2) input.uv);
-    color.r = mul(color.r, alpha);
-    color.g = mul(color.g, alpha);
-    color.b = mul(color.b, alpha);
-    color.a = mul(color.a, alpha);
 	
     if (input.uv.x > 0.0f || input.uv.y>0.0f)
         color = color;  // 그림을 그린다

@@ -1,5 +1,6 @@
 #pragma once
 #include "Geomatries/Tile/TMap.h"
+#include "Utilities/FileStream.h"
 class TileMapDemo : public IObject
 {
 public:

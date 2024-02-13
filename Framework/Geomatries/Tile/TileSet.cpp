@@ -26,7 +26,7 @@ void TileSet::GUI()
 		int count = 0;
 		for (uint y = 0; y < tileYCount; y++)
 		{
-			for (uint x = 0; x = tileXCount; x++)
+			for (uint x = 0; x < tileXCount; x++)
 			{
 				float startX = TexelTileSize.x * x;
 				float startY = TexelTileSize.y * y;
@@ -46,6 +46,7 @@ void TileSet::GUI()
 			}
 		}
 	}
+	ImGui::End();
 }
 
 void TileSet::ChangeTileMap(wstring imagePath, uint xCount, uint yCount)
