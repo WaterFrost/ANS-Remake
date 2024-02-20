@@ -11,7 +11,7 @@ void TileMapDemo::Init()
 
 	tm = new TMap(width, height, spacing);
 
-	TileSet::Get()->ChangeTileMap(TexturePath + L"/Tilesets/Hills.png", 18, 10);
+	TileSet::Get()->ChangeTileMap(TexturePath + L"/Tilesets/Hills.png", 11, 7);
 }
 
 void TileMapDemo::Destroy()

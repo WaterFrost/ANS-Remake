@@ -38,6 +38,8 @@ public:
 		return wheelMoveValue;
 	}
 
+	
+
 private:
 	Mouse();
 	~Mouse();

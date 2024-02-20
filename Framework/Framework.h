@@ -75,7 +75,6 @@ using namespace std;
 #include "Utilities/Gui.h"
 #include "Utilities/Random.h"
 
-
 typedef D3DXVECTOR3 Vector3;
 typedef D3DXVECTOR2 Vector2;
 typedef D3DXMATRIX  Matrix;
@@ -118,12 +117,14 @@ typedef UINT		uint;
 #include "Geomatries/TextureRect.h"
 #include "Geomatries/AnimationRect.h"
 
+#include "Systems/Camera.h"
+
 #define WinMaxWidth 1280
 #define WinMaxHeight 720
 
 const wstring ShaderPath = L"../_Shaders/";
 const wstring TexturePath = L"../_Textures/";
 const wstring SoundPath = L"../_Sounds/";
-const string TilePath = ".. / _TileDatas / ";
+const string TilePath = "../_TileDatas/";
 
 extern HWND handle;

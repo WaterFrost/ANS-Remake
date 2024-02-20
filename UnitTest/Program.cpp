@@ -9,40 +9,8 @@
 void Program::Init()
 {
 	States::Create();
-	// Create Buffer
-	{
-		vpb = new VPBuffer();
-
-		// View 행렬 생성
-		{
-			D3DXMatrixLookAtLH
-			(
-				&view,
-				&Vector3(0, 0, 0), // 카메라 위치(원점)
-				&Vector3(0, 0, 1), // 카메라가 바라보는 방향
-				&Vector3(0, 1, 0)  // 카메라의 위쪽 방향
-			);
-		}
-
-		// Projection 행렬 생성
-		{
-			// 직교 투영 행렬
-			D3DXMatrixOrthoOffCenterLH
-			(
-				&proj,
-				0.0f,				// 왼쪽 면의 위치
-				(float)WinMaxWidth, // 오른쪽 면의 위치
-				0.0f,				// 아래쪽 면의 위치
-				(float)WinMaxHeight,// 위쪽 면의 위치
-				0,					// 니어 (깊이 시작)
-				1					// 파	(깊이 끝)
-			);
-		}
-
-		// 버퍼 세팅
-		vpb->SetView(view);
-		vpb->SetProj(proj);
-	}
+	Camera::Create();
+	
 
 //	Push(new RectDemo);
 //	Push(new TextureDemo);
@@ -55,8 +23,6 @@ void Program::Init()
 
 void Program::Destroy()
 {
-	SAFE_DELETE(vpb);
-
 	for (IObject* obj : objs)
 	{
 		obj->Destroy();
@@ -66,13 +32,16 @@ void Program::Destroy()
 
 void Program::Update()
 {
+	Camera::Get()->Update();
+
 	for (IObject* obj : objs)
 		obj->Update();
 }
 
 void Program::Render()
 {
-	vpb->SetVSBuffer(1);
+	Camera::Get()->UpdateView();
+	Camera::Get()->Render();
 
 	for (IObject* obj : objs)
 		obj->Render();

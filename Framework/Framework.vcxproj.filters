@@ -34,6 +34,7 @@
     <ClCompile Include="Geomatries\Tile\TileSet.cpp" />
     <ClCompile Include="Utilities\FileStream.cpp" />
     <ClCompile Include="Geomatries\Tile\TMap.cpp" />
+    <ClCompile Include="Systems\Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Systems\Graphics.h" />
@@ -73,5 +74,6 @@
     <ClInclude Include="Geomatries\Tile\TileSet.h" />
     <ClInclude Include="Utilities\FileStream.h" />
     <ClInclude Include="Geomatries\Tile\TMap.h" />
+    <ClInclude Include="Systems\Camera.h" />
   </ItemGroup>
 </Project>
