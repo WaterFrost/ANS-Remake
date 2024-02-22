@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Geomatries/TextureRect.h"
+#include "Geomatries/Rect.h"
 
 class TestDemo : public IObject
 {
@@ -15,4 +16,5 @@ public:
 
 private:
 	AnimationRect* ar = nullptr;
+	Rect* rect = nullptr;
 };

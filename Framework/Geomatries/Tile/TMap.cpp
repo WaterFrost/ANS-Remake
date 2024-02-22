@@ -81,7 +81,7 @@ void TMap::Update()
 		}
 	}
 	// 마우스 위치 불러오기
-	Vector3 mPos = Mouse::Get()->GetPosition();
+	Vector3 mPos = Camera::Get()->GetMPosition();
 	// 마우스 위치에 타일 있는지 확인
 	Tile* tile = GetTile(mPos);
 

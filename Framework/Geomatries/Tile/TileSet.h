@@ -11,6 +11,8 @@ public:
 	ID3D11ShaderResourceView* GetSRV() { return tileSRV; }
 
 	void ChangeTileMap(wstring imagePath, uint xCount, uint yCount);
+	
+	wstring GetTilePath() { return tilepath; }
 private:
 	TileSet();
 	~TileSet();
@@ -25,4 +27,5 @@ private:
 	//그림의 이미지 크기 사이즈
 	Vector2 TexelTileSize = Values::ZeroVec2;
 
+	wstring tilepath = L"";
 };

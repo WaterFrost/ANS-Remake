@@ -2,6 +2,15 @@
 #include "Camera.h"
 
 
+const Vector3 Camera::GetMPosition()
+{
+	Vector3 MPos = Mouse::Get()->GetPosition();
+
+	MPos += position;
+
+	return MPos;
+}
+
 Camera::Camera()
 {
 	// Create Buffer

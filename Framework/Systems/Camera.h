@@ -13,14 +13,15 @@ public:
 	void Move();
 	void UpdateView();
 
-	const Vector3 GetPosition() { return position; }
-	const Vector3 GetGlobalMPos() { return globalMPos; }
 
 	void SetPosition(Vector3 position) { this->position = position; }
 	void SetTarget(TextureRect* target) { this->target = target; }
 
 	void DelTarget() { this->target = nullptr; }
 	TextureRect* GetTarget() { return target; }
+	const Vector3 GetPosition() { return position; }
+	const Vector3 GetGlobalMPos() { return globalMPos; }
+	const Vector3 GetMPosition();
 	
 private:
 	Camera();
