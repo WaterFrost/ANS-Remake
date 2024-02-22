@@ -5,6 +5,7 @@
 
 #include "Demos/Avoid_N_Survive.h"
 #include "Demos/05_TileMapDemo.h"
+#include "Demos/TestDemo.h"
 
 void Program::Init()
 {
@@ -12,13 +13,10 @@ void Program::Init()
 	Camera::Create();
 	
 
-//	Push(new RectDemo);
-//	Push(new TextureDemo);
-//	Push(new CollisionDemo);
-//	Push(new ShadedDemo);
-//	Push(new AnimDemo);
+
 //	Push(new Avoid_N_Survive);
-	Push(new TileMapDemo);
+//	Push(new TileMapDemo);
+	Push(new TestDemo);
 }
 
 void Program::Destroy()

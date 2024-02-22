@@ -148,12 +148,14 @@
   <ItemGroup>
     <ClInclude Include="Demos\05_TileMapDemo.h" />
     <ClInclude Include="Demos\Avoid_N_Survive.h" />
+    <ClInclude Include="Demos\TestDemo.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demos\05_TileMapDemo.cpp" />
     <ClCompile Include="Demos\Avoid_N_Survive.cpp" />
+    <ClCompile Include="Demos\TestDemo.cpp" />
     <ClCompile Include="Program.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

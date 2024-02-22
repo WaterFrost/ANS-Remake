@@ -56,6 +56,10 @@ cbuffer AlphaBuffer : register(b0)
 float4 PS(PixelInput input)	: SV_Target
 {
     float4 color = _sourceTex.Sample(_samp, (float2) input.uv);
+  
+	if(color.r >= 0.99 && color.g <= 0.01f && color.b >=0.99)
+        discard;
+	
     color.r = mul(color.r, alpha);
     color.g = mul(color.g, alpha);
     color.b = mul(color.b, alpha);
